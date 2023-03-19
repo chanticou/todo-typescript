@@ -1,0 +1,49 @@
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 0 4px;
+}
+
+.form_input {
+  padding: 10px 20px;
+}
+
+.form_content_task {
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0;
+  /* width: 754px; */
+
+  margin-top: 10px;
+  align-content: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.form_content {
+  display: flex;
+  flex-direction: row;
+  width: 670px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0, 0.3);
+}
+.form_task_name {
+  width: 200px;
+}
+
+.form_task_delete {
+  width: 80px;
+}
+
+.form_task_checkbox {
+  width: 80px;
+}
+
+.form_task_contentButton_checkbox {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0;
+  align-items: center;
+}
