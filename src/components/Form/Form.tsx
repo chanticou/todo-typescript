@@ -10,6 +10,7 @@ export function Form(): JSX.Element {
   const [newtask, setNewTask] = useState<string>("");
   const [allTasks, setAllTasks] = useState<ITtask[]>([]);
   const [idCounter, setIdCounter] = useState<number>(1);
+  const [getTaskDone, setgetTaskDone] = useState<object>({});
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,12 +28,21 @@ export function Form(): JSX.Element {
     setAllTasks(deleteTask);
   };
 
-  const handleDone = () => {
-    console.log("DONE");
+  const handleclickCheckbox = (id: number) => {
+    const updatedTasks = allTasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, done: !task.done };
+      }
+      return task;
+    });
+    setAllTasks(updatedTasks);
   };
 
   return (
     <>
+      <button onClick={() => allTasks.map((el) => console.log(el.done))}>
+        ALLTASKS
+      </button>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="form">
           <input
@@ -43,10 +53,13 @@ export function Form(): JSX.Element {
           />
           <input type="submit" value="+" />
         </div>
+
         <div className="form_content_task">
           {allTasks.map((el) => (
             <div className="form_content" key={el.id}>
-              <span className="form_task_name">{el.name}</span>
+              <span className={`form_task_name ${el.done ? "done" : ""}`}>
+                {el.name}
+              </span>
               <div className="form_task_contentButton_checkbox">
                 <button
                   className="form_task_delete"
@@ -54,7 +67,11 @@ export function Form(): JSX.Element {
                 >
                   Delete
                 </button>
-                <input className="form_task_checkbox" type="checkbox" />
+                <input
+                  onClick={(e) => handleclickCheckbox(el.id)}
+                  className="form_task_checkbox"
+                  type="checkbox"
+                />
               </div>
             </div>
           ))}

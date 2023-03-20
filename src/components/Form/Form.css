@@ -47,3 +47,8 @@
   padding: 10px 0;
   align-items: center;
 }
+
+.done {
+  text-decoration: line-through;
+  width: 200px;
+}
