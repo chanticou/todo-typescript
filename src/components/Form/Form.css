@@ -35,6 +35,7 @@
 
 .form_task_delete {
   width: 80px;
+  border-color: transparent;
 }
 
 .form_task_checkbox {
@@ -50,5 +51,14 @@
 
 .done {
   text-decoration: line-through;
+  color: red;
   width: 200px;
 }
+
+.content_submit {
+  border-color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* CHECKBOX */
